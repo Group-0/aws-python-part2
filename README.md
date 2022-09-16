@@ -6,7 +6,7 @@ Navigate to the repository's folder, test your code by opening up the terminal t
 
 ## Group Member Items
 
-# Set Up
+### Setting Up
 
 1. Make sure you have
 
@@ -18,11 +18,11 @@ Navigate to the repository's folder, test your code by opening up the terminal t
 2. Click the [bright green `Code v` button on the top](x-github-client://openRepo/https://github.com/Group-0/aws-python) to open in GitHub Desktop
 3. Once opening on GitHub Desktop, select Repository > Open in Visual Studio Code
 
-## Running
+### Running
 
 Once you have set it up, navigate to the Current Branch tab in GitHub Desktop and use the developer branch. test your code by opening up the terminal [How do I open the terminal on VS Code?](https://code.visualstudio.com/docs/terminal/basics#:~:text=Use%20the%20View%20%3E%20Terminal%20menu,the%20View%3A%20Toggle%20Terminal%20command.) then run the command `python3 main.py`.
 
-## Developing 
+### Developing 
 
 ** Go to the development branch **. 
 Once you are ready to submit your code to the main brach...
