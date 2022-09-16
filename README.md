@@ -14,4 +14,4 @@
 
 ## Running it on your local machine
 
-Once you have set it up, test your code by opening up the terminal [How do I open the terminal on VS Code?](<https://code.visualstudio.com/docs/terminal/basics#:~:text=Use%20the%20View%20%3E%20Terminal%20menu,the%20View%3A%20Toggle%20Terminal%20command>.) then running the command `python3 main.py`.
+Once you have set it up, test your code by opening up the terminal [How do I open the terminal on VS Code?](https://code.visualstudio.com/docs/terminal/basics#:~:text=Use%20the%20View%20%3E%20Terminal%20menu,the%20View%3A%20Toggle%20Terminal%20command.) then run the command `python3 main.py`.
