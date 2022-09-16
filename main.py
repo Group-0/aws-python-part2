@@ -6,9 +6,6 @@ LOCAL_FILE = 'http_access_log.txt'
 # I used urlretrieve() and fetched a remote copy to save into the local file path
 local_file, headers = urlretrieve(URL_PATH, LOCAL_FILE)
 
-# Alt.: an anonmymous callback function supplied to print a simple progress bar to the screen
-local_file, headers = urlretrieve(URL_PATH, LOCAL_FILE, lambda x,y,z: print('.', end='', flush=True))
-
 # Alt. 2: a progress bar with reduced output (every 1000 blocks)
 local_file, headers = urlretrieve(URL_PATH, LOCAL_FILE, lambda x,y,z: print('.', end='', flush=True) if x % 100 == 0 else False)
 
