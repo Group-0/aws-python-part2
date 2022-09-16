@@ -24,7 +24,7 @@ Once you have set it up, navigate to the Current Branch tab in GitHub Desktop an
 
 ### Developing 
 
-** Go to the development branch **. 
+**Go to the development branch.**
 Once you are ready to submit your code to the main brach...
 
 1. Make sure there are no merge errors
