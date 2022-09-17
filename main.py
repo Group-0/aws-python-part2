@@ -23,6 +23,11 @@ os.system('clear')
 
 # Irish's Code: Calculating total amount of requests
 
+# opens & reads LOCAL_FILE as filehead file
+with open(LOCAL_FILE, "r") as file:
+    # stores each line in list & counts list length
+    amt_request_total= len(file.readlines())
+
 # Roxanna's Code: Outputting the requested amounts
 print("Total Amount of Data requested within six months:", amt_request_six_months)
 
