@@ -13,7 +13,6 @@ local_file, headers = urlretrieve(URL_PATH, LOCAL_FILE, lambda x,y,z: print('.',
 amt_request_six_months = 0
 print("Total Amount of Data requested within six months:", amt_request_six_months)
 
-
 amt_request_total = 0
 print("Total Amount of Requests for the total amount of time period:", amt_request_total)
 
