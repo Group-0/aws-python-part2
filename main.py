@@ -15,8 +15,8 @@ LOCAL_FILE = 'http_access_log.txt'
 print("Loading Log File...")
 local_file, headers = urlretrieve(URL_PATH, LOCAL_FILE, lambda x,y,z: print('.', end='', flush=True) if x % 100 == 0 else False)
 
-print("\nDone Loading")
-sleep(5)
+print("\nDone Loading.")
+sleep(3)
 os.system('clear')
 
 # Paula's Code: Calculating the requests from the past 6 months
