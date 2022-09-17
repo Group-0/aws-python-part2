@@ -6,6 +6,7 @@ import os
 amt_request_six_months = 0
 amt_request_total = 0
 
+# Claire's Code: Fetching the log file from the Apache server
 URL_PATH = 'https://s3.amazonaws.com/tcmg476/http_access_log'
 LOCAL_FILE = 'http_access_log.txt'
 
@@ -18,7 +19,11 @@ print("\nDone Loading")
 sleep(5)
 os.system('clear')
 
+# Paula's Code: Calculating the requests from the past 6 months
 
+# Irish's Code: Calculating total amount of requests
+
+# Roxanna's Code: Outputting the requested amounts
 print("Total Amount of Data requested within six months:", amt_request_six_months)
 
 print("Total Amount of Requests for the total amount of time period:", amt_request_total)
