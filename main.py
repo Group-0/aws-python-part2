@@ -2,6 +2,10 @@ from time import sleep
 from urllib.request import urlretrieve
 import os
 
+# Variables to use
+amt_request_six_months = 0
+amt_request_total = 0
+
 URL_PATH = 'https://s3.amazonaws.com/tcmg476/http_access_log'
 LOCAL_FILE = 'http_access_log.txt'
 
@@ -14,9 +18,7 @@ print("\nDone Loading")
 sleep(5)
 os.system('clear')
 
-amt_request_six_months = 0
+
 print("Total Amount of Data requested within six months:", amt_request_six_months)
 
-
-amt_request_total = 0
 print("Total Amount of Requests for the total amount of time period:", amt_request_total)
