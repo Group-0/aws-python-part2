@@ -16,4 +16,4 @@ print("Total Amount of Data requested within six months:", amt_request_six_month
 amt_request_total = 0
 print("Total Amount of Requests for the total amount of time period:", amt_request_total)
 
-print("Done")
+print("Succesfully analyzed log files")
