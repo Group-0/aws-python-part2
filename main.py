@@ -1,5 +1,6 @@
 from urllib.request import urlretrieve
 import os
+from os.path import exists
 
 # Variables to use
 amt_request_six_months = 0
@@ -21,24 +22,23 @@ def getSixMonths(file):
 
 # Claire's Code: Fetching the log file from the Apache server
 URL_PATH = 'https://s3.amazonaws.com/tcmg476/http_access_log'
-LOCAL_FILE = 'http_access_log.txt'
 
-# I used urlretrieve() and fetched a remote copy to save into the local file path
-# left this line for better user experience
-print("Loading Log File...")
-local_file, headers = urlretrieve(URL_PATH, LOCAL_FILE, lambda x,y,z: print('.', end='', flush=True) if x % 100 == 0 else False)
+if os.path.exists('http_access_log.txt'):  
+    log_file = 'http_access_log.txt'
+else:
+    print("Loading Log File...")
+    log_file, headers = urlretrieve(URL_PATH, 'http_access_log.txt', lambda x,y,z: print('.', end='', flush=True) if x % 100 == 0 else False)
 
 print("\nDone Loading.")
 os.system('clear')
 
 # Paula's Code: Calculating the requests from the first 6 months
-file = open(local_file, "r")
+file = open(log_file, "r")
 amt_request_six_months = getSixMonths(file)
 
 # Irish's Code: Calculating total amount of requests
-
-# opens & reads LOCAL_FILE as filehead file
-with open(LOCAL_FILE, "r") as file:
+# opens & reads log file as filehead file
+with open(log_file, "r") as file:
     # stores each line in list & counts list length
     amt_request_total= len(file.readlines())
 
