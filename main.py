@@ -9,7 +9,7 @@ amt_request_total = 0
 # Paula's Code: the function to calculate the requests made in 6 months
 def getSixMonths(file):
     global amt_request_six_months
-    # Reading from file
+    
     Content = file.read()
     line_list = Content.split("\n")
     # startMonAndDay: "24/Oct/1994"
@@ -43,8 +43,8 @@ with open(log_file, "r") as file:
     amt_request_total= len(file.readlines())
 
 # Roxanna's Code: Outputting the requested amounts
-print("Total Amount of Data requested within six months:", amt_request_six_months)
-
-print("Total Amount of Requests for the total amount of time period:", amt_request_total)
-
 print("Done analyzing log files.")
+print("-"*20)
+print("Total Amount of Data requested within the first six months: \t", amt_request_six_months)
+print("Total Amount of Requests for the total amount of time period: \t",  amt_request_total)
+print("-"*20)
