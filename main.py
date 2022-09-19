@@ -32,3 +32,5 @@ with open(LOCAL_FILE, "r") as file:
 print("Total Amount of Data requested within six months:", amt_request_six_months)
 
 print("Total Amount of Requests for the total amount of time period:", amt_request_total)
+
+print("Done analyzing log files.")
