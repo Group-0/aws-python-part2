@@ -45,6 +45,6 @@ with open(log_file, "r") as file:
 # Roxanna's Code: Outputting the requested amounts
 print("Done analyzing log files.")
 print("-"*20)
-print("Total Amount of Data requested within the first six months: \t", amt_request_six_months)
-print("Total Amount of Requests for the total amount of time period: \t",  amt_request_total)
+print("Total amount of data requested within the first six months: \t", amt_request_six_months)
+print("Total amount of requests for the total amount of time period: \t",  amt_request_total)
 print("-"*20)
