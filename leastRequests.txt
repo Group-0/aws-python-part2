@@ -1,0 +1,22 @@
+leastRequests
+
+
+#code 
+amt_of_least_requested = 0 
+amt_least_requested= 200
+next = 0 
+#Amount of least Requested Files 
+with open(log_file,"r") as file:
+    line = file.readline()
+    amt_of_least_requested = leastRequested(file)
+
+#count
+
+#two for loops 
+for each line: 
+    next = 
+
+for 
+
+#if (compare)
+if next == amt_least_requested:
