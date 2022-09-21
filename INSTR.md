@@ -1,6 +1,7 @@
 Marketing was very happy with the data you provided them. Now they want more. They have asked that you answer more questions  so they have a better idea about the nature of the visitors that are coming to the company website.  
 
 Marketing is asking for answer to the following questions:  
+
 - How many requests were made on each day?  
 - How many requests were made on a week-by-week basis? Per month? 
 - What percentage of the requests were not successful (any 4xx status code)? 
