@@ -1,0 +1,13 @@
+Start
+Make function called break12months() that takes in the log file as a variable, so
+```
+def break12months(file):
+    [CODE]
+```
+Open file
+Read file line by line
+Create text file for all months (Oct_requests.txt, Nov_requests.txt, etc *capital first letter*)
+if statement: if october 'Oct' comes is included in the line
+elif statement for following months ('Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep' *for the else, just skip/go onto next line*)
+When in the 'if' statement, add line to its respective text file
+Done
