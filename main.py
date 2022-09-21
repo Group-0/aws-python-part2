@@ -5,6 +5,7 @@ from os.path import exists
 # Variables to use
 amt_request_six_months = 0
 amt_request_total = 0
+amt_of_least_requested = 0 
 
 # Paula's Code: the function to calculate the requests made in 6 months
 def getSixMonths(file):
@@ -48,3 +49,13 @@ print("-"*20)
 print("Total amount of data requested within the first six months: \t", amt_request_six_months)
 print("Total amount of requests for the total amount of time period: \t",  amt_request_total)
 print("-"*20)
+
+
+#Amount of least Requested Files 
+def leastRequested(file) :
+    global amt_of_least_requested
+
+
+
+with open(log_file,"r") as file:
+    amt_of_least_requested = leastRequested(file)
