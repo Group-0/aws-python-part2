@@ -50,12 +50,18 @@ print("Total amount of data requested within the first six months: \t", amt_requ
 print("Total amount of requests for the total amount of time period: \t",  amt_request_total)
 print("-"*20)
 
+#Roxanna: Code for least Requested File: 
+filesCount = {'index' : ,   'html' :  , '' : }
 
-#Amount of least Requested Files 
-def leastRequested(file) :
-    global amt_of_least_requested
+for line in open(local_file):
+    fileInfo = re.split('index.html', line)
+    filename = fileInfo[3]
 
+    if filename in filesCount:
+        filesCount[filename] += 1
+    else:
+        filesCount[filename] = 1 
 
-
-with open(log_file,"r") as file:
-    amt_of_least_requested = leastRequested(file)
+#Returns amount of least requested log file
+min_value = min(filesCount.values())
+print(min_value)
