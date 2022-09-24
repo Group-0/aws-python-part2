@@ -53,7 +53,7 @@ print("-"*20)
 #Roxanna: Code for least Requested File: 
 filesCount = {'index' : ,   'html' :  , '' : }
 
-for line in open(local_file):
+for line in open(LOCAL_FILE):
     fileInfo = re.split('index.html', line)
     filename = fileInfo[3]
 
