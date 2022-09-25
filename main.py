@@ -51,20 +51,24 @@ print("Total amount of requests for the total amount of time period: \t",  amt_r
 print("-"*20)
 
 #Code for counting both most & least requested Files: 
-with open(LOCAL_FILE, "r") as file:
-    list = line.split ("")
-   
-    for line in file:
-        fileInfo = list[1].split(' ')
-        filename = fileInfo[1]
+file = open(LOCAL_FILE, "r")
 
-    filesCount = {'index': 0,'html' : 0 ,'git':0} #0 = place holder
+for line in LOCAL_FILE:
+    list = line.split(" ")
+    fileInfo = list[0].split(" ")
+    filename = fileInfo[0]
 
-    if filename in filesCount:
+filesCount= {}
+
+for list in filename:
+    if filename in filesCount :
         filesCount[filename] += 1
     else:
-        filesCount[filename] = 1 
+        filesCount[filename] = 1
 
 #Roxanna's: Returns amount of least requested log file
 min_value = min(filesCount.values())
-print(min_value)
+#get keys with minimal value using list comprehension
+minimum_keys = [key for key in filesCount if filesCount[key]==min_value]
+#print the minimum keys
+print(minimum_keys)
