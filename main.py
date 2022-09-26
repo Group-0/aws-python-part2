@@ -52,20 +52,6 @@ print("Total amount of requests for the total amount of time period: \t",  amt_r
 print("-"*20)
 
 #Code for counting both most & least requested Files: 
-file = open(LOCAL_FILE, "r")
-
-for line in LOCAL_FILE:
-    list = line.split(" ")
-    fileInfo = list[0].split(" ")
-    filename = fileInfo[0]
-
-filesCount= {}
-
-for list in filename:
-    if filename in filesCount :
-        filesCount[filename] += 1
-    else:
-        filesCount[filename] = 1
 
 #Roxanna's: Returns amount of least requested log file
 min_value = min(filesCount.values())
