@@ -50,6 +50,16 @@ print("-"*20)
 print("Total amount of data requested within the first six months: \t", amt_request_six_months)
 print("Total amount of requests for the total amount of time period: \t",  amt_request_total)
 print("-"*20)
+# How Many Requests were made on each day
+# How Many Requests week by week basis
+# How Many Requests per month
+print("-"*20)
+# % Of requests successful
+# % Of requests directed elsewhere
+print("-"*20)
+# Input max file
+# Input min file
+print("-"*20)
 
 #Code for counting both most & least requested Files: 
 
