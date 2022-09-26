@@ -76,7 +76,7 @@ def getFileCount():
 
 amt_request_six_months = getFileCount()
 
-print("File max seen in log file: ", max(file_count, key=file_count.get))
-print("File min seen in log file: ", min(file_count, key=file_count.get))
+print("This is the most requested file: ", max(file_count, key=file_count.get))
+print("This is the least requested file: ", min(file_count, key=file_count.get))
 
 
