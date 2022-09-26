@@ -62,6 +62,32 @@ print("-"*20)
 print("-"*20)
 
 #Code for counting both most & least requested Files: 
+import re
+
+file_count = {}
+
+
+def getFileCount():
+  global file_count
+  for line in open('http_access_log.txt'):
+    pieces = re.split(
+      ".*\[([0-9]+/[a-zA-Z]+/[0-9]{4}):(.*) \-[0-9]{4}\] \"(?:GET )(.*)(?: HTTP/1.0)\" .*",
+      line)
+      # Let's further say that we can get the filename part at the 4th list element
+
+    if len(pieces) > 3:
+      filename = pieces[3]
+      
+      if filename in file_count:
+        file_count[filename] += 1
+      else:
+        
+        file_count[filename] = 1
+
+amt_request_six_months = getFileCount()
+
+print("File max seen in log file: ", max(file_count, key=file_count.get))
+print("File min seen in log file: ", min(file_count, key=file_count.get))
 
 #Roxanna's: Returns amount of least requested log file
 min_value = min(filesCount.values())
