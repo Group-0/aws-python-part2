@@ -56,7 +56,6 @@ import re
 
 file_count = {}
 
-
 def getFileCount():
   global file_count
   for line in open('http_access_log.txt'):
