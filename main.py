@@ -1,6 +1,7 @@
 from urllib.request import urlretrieve
 import os
 from os.path import exists
+import re
 
 # Variables to use
 amt_request_six_months = 0
