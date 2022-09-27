@@ -10,6 +10,9 @@ file_count = {}
 month_count = {}
 day_count = {}
 
+week_count = {}
+week_count_avg = {}
+
 """ 
   Variables to use
 """ 
@@ -80,6 +83,28 @@ def findCountDay():
         day_count[day] += 1
       else:
         day_count[day] = 1
+        
+def findCountWeek():
+  global day_count
+  global week_count
+  
+  week_amt = 1
+  day_amt = 1
+  sum = 0
+  
+  for key, value in day_count.items():
+    if day_amt <= 7:
+      sum += int(value)
+      day_amt += 1
+    else:
+      # assigns week as key and sum/sum avg as its value
+      weekname = "Week " + str(week_amt)
+      week_count[weekname] = sum
+      week_count_avg[weekname] = sum/7
+      # resets values
+      week_amt += 1
+      day_amt = 1
+      sum = int(value)
 
 #Code for counting both most & least requested Files: 
 def getFileCount():
@@ -143,6 +168,19 @@ for k, v in day_count.items():
 print("Average requests per day is: ", sum(day_count.values()) / len(day_count))
 print("-"*20)
 
+# Paula's code: Calculates requests per week and average
+findCountWeek()
+
+print("Requests made per week:")
+for k, v in week_count.items():
+  print(k, v)
+  
+print("\nAverage requests made per week:")
+for k, v in week_count_avg.items():
+  print(k, v)
+  
+print("-"*20)
+# Roxanna & Claire: Most and least requested files
 amt_request_six_months = getFileCount()
 
 print("This is the most requested file: ", max(file_count, key=file_count.get))
