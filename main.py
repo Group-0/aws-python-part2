@@ -27,7 +27,7 @@ def getSixMonths(file):
 def getRequestsPercent(file, num): 
     global amt_request_total
     # Append first digit of request code we're looking for (num) to the regex pattern
-    pattern = '.*\[([0-9]+/[a-zA-Z]+/[0-9]{4}):(.*) \-[0-9]{4}\] \"(.*)\" ' + num + '\d\d'
+    pattern = '.*\[([0-9]+/[a-zA-Z]+/[0-9]{4}):(.*) \-[0-9]{4}\] \"(.*)\" ' + num + '\d\d.*'
     amt_requests = 0
 
     # Loop through each line of file
