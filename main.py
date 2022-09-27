@@ -23,11 +23,11 @@ def getSixMonths(file):
                 return (amt_request_six_months - 1)
 
 
-# Irish's Code: function to get the percent of requests for a particular request code starting with string/char num (i.e., 4xx, 3xx)
+# Irish's Code: function to get the percent of requests for a particular request code starting with string num (i.e., 4xx, 3xx)
 def getRequestsPercent(file, num): 
     global amt_request_total
     # Append first digit of request code we're looking for (num) to the regex pattern
-    pattern = '.*\[([0-9]+/[a-zA-Z]+/[0-9]{4}):(.*) \-[0-9]{4}\] \"(.*)\" ' + num + '\d\d.*'
+    pattern = ".*\[([0-9]+/[a-zA-Z]+/[0-9]{4}):(.*) \-[0-9]{4}\] \"(.*)\" " + num + ".*"
     amt_requests = 0
 
     # Loop through each line of file
