@@ -140,7 +140,7 @@ findCountDay()
 print("Requests made per day:")
 for k, v in day_count.items():
   print(k, v)
-
+print("Average requests per day is: ", sum(day_count.values()) / len(day_count))
 print("-"*20)
 
 amt_request_six_months = getFileCount()
