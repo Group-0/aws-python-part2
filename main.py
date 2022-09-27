@@ -133,3 +133,4 @@ with open(log_file, "r") as file:
 with open(log_file, "r") as file:
     # Call function with correct parameters and print results
     print("Percent of Redirected Requests: ", getRequestsPercent(file, "3"), "%")
+print("-"*20)
