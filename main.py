@@ -12,7 +12,8 @@ amt_request_six_months = 0
 amt_request_total = 0
 amt_of_least_requested = 0 
 
-# Paula's Code: the function to calculate the requests made in 6 months
+# Functions to use
+#   Paula's Code: the function to calculate the requests made in 6 months
 def getSixMonths(file):
     global amt_request_six_months
     
@@ -26,8 +27,7 @@ def getSixMonths(file):
             if "24/May/1995" in line:
                 return (amt_request_six_months - 1)
 
-
-# Irish's Code: function to get the percent of requests for a particular request code starting with string num (i.e., 4xx, 3xx)
+#   Irish's Code: function to get the percent of requests for a particular request code starting with string num (i.e., 4xx, 3xx)
 def getRequestsPercent(file, num): 
     global amt_request_total
     # Append first digit of request code we're looking for (num) to the regex pattern
@@ -47,7 +47,36 @@ def getRequestsPercent(file, num):
     # Get percentage; divide amt_requests by amt_request_total
     requests_percent = (amt_requests / amt_request_total) * 100
     return round(requests_percent, 2)
-   
+
+def findCountMonth():
+  global month_count
+  for line in open('http_access_log.txt'):
+    pieces = re.split(
+      ".*\[[0-9]+/([a-zA-Z]+)/[0-9]{4}:.* \-[0-9]{4}\] \".*\" .*", line)
+    if len(pieces) > 1:
+      month = pieces[1]
+      if month in month_count:
+        month_count[month] += 1
+      else:
+        month_count[month] = 1
+ 
+#Code for counting both most & least requested Files: 
+def getFileCount():
+  global file_count
+  for line in open('http_access_log.txt'):
+    pieces = re.split(
+      ".*\[([0-9]+/[a-zA-Z]+/[0-9]{4}):(.*) \-[0-9]{4}\] \"(?:GET )(.*)(?: HTTP/1.0)\" .*",
+      line)
+      # Let's further say that we can get the filename part at the 4th list element
+
+    if len(pieces) > 3:
+      filename = pieces[3]
+      
+      if filename in file_count:
+        file_count[filename] += 1
+      else:
+        
+        file_count[filename] = 1
 
 # Claire's Code: Fetching the log file from the Apache server
 URL_PATH = 'https://s3.amazonaws.com/tcmg476/http_access_log'
@@ -78,48 +107,19 @@ print("Total amount of data requested within the first six months: \t", amt_requ
 print("Total amount of requests for the total amount of time period: \t",  amt_request_total)
 print("-"*20)
 
-def findCountMonth():
-  global month_count
-  for line in open('http_access_log.txt'):
-    pieces = re.split(
-      ".*\[[0-9]+/([a-zA-Z]+)/[0-9]{4}:.* \-[0-9]{4}\] \".*\" .*", line)
-    if len(pieces) > 1:
-      month = pieces[1]
-      if month in month_count:
-        month_count[month] += 1
-      else:
-        month_count[month] = 1
-
 findCountMonth()
-
 print("Requests made per month:")
 for k, v in month_count.items():
     print(k, v)
+    
 print("-"*20)
-#Code for counting both most & least requested Files: 
-def getFileCount():
-  global file_count
-  for line in open('http_access_log.txt'):
-    pieces = re.split(
-      ".*\[([0-9]+/[a-zA-Z]+/[0-9]{4}):(.*) \-[0-9]{4}\] \"(?:GET )(.*)(?: HTTP/1.0)\" .*",
-      line)
-      # Let's further say that we can get the filename part at the 4th list element
-
-    if len(pieces) > 3:
-      filename = pieces[3]
-      
-      if filename in file_count:
-        file_count[filename] += 1
-      else:
-        
-        file_count[filename] = 1
 
 amt_request_six_months = getFileCount()
 
 print("This is the most requested file: ", max(file_count, key=file_count.get))
 print("This is the least requested file: ", min(file_count, key=file_count.get))
-print("-"*20)
 
+print("-"*20)
 
 # Irish's Code: Percentage of requests that were unsuccessful (4xx request codes)
 # Open and read file
@@ -127,10 +127,10 @@ with open(log_file, "r") as file:
     # Call function with correct parameters and print results
     print("Percent of Unsuccessful Requests: ", getRequestsPercent(file, "4"), "%")
 
-    
 # Juan's Code: Percentage of requests that were redirected elsewhere (any 3xx request codes)
 # Open and read file
 with open(log_file, "r") as file:
     # Call function with correct parameters and print results
     print("Percent of Redirected Requests: ", getRequestsPercent(file, "3"), "%")
+    
 print("-"*20)
