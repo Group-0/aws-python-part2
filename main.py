@@ -119,6 +119,7 @@ print("Total amount of data requested within the first six months: \t", amt_requ
 print("Total amount of requests for the total amount of time period: \t",  amt_request_total)
 print("-"*20)
 
+# Paula's code: Calculates requests per month
 findCountMonth()
 print("Requests made per month:")
 for k, v in month_count.items():
@@ -126,6 +127,7 @@ for k, v in month_count.items():
     
 print("-"*20)
 
+# Paula's code: Calculates requests per day
 findCountDay()
 print("Requests made per day:")
 for k, v in day_count.items():
