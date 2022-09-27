@@ -22,6 +22,30 @@ def getSixMonths(file):
             if "24/May/1995" in line:
                 return (amt_request_six_months - 1)
 
+
+# Irish's Code: function to get the percent of requests for a particular request code starting with string/char num (i.e., 4xx, 3xx)
+def getRequestsPercent(file, num):
+    # Get amt_request_total 
+    global amt_request_total
+    # Append first digit of request code we're looking for (num) to the regex pattern
+    pattern = '.*\[([0-9]+/[a-zA-Z]+/[0-9]{4}):(.*) \-[0-9]{4}\] \"(.*)\" ' + num + '\d\d'
+    amt_requests = 0
+
+    # Loop through each line of file
+    for line in file:
+        # Read line of file one by one and temporarily store as one_line
+        one_line = file.readline()
+
+        # Use regex function re.search() to check if current line matches with regex pattern
+        if re.search(pattern, one_line):
+            # If it matches, increment amt_requests by 1
+            amt_requests += 1
+    
+    # Get percentage; divide amt_requests by amt_request_total
+    requests_percent = (amt_requests / amt_request_total) * 100
+    return round(requests_percent, 2)
+   
+
 # Claire's Code: Fetching the log file from the Apache server
 URL_PATH = 'https://s3.amazonaws.com/tcmg476/http_access_log'
 
