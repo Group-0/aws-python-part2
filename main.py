@@ -3,6 +3,10 @@ import os
 from os.path import exists
 import re
 
+# Dictionaries to use
+file_count = {}
+month_count = {}
+
 # Variables to use
 amt_request_six_months = 0
 amt_request_total = 0
@@ -74,11 +78,25 @@ print("Total amount of data requested within the first six months: \t", amt_requ
 print("Total amount of requests for the total amount of time period: \t",  amt_request_total)
 print("-"*20)
 
+def findCountMonth():
+  global month_count
+  for line in open('http_access_log.txt'):
+    pieces = re.split(
+      ".*\[[0-9]+/([a-zA-Z]+)/[0-9]{4}:.* \-[0-9]{4}\] \".*\" .*", line)
+    if len(pieces) > 1:
+      month = pieces[1]
+      if month in month_count:
+        month_count[month] += 1
+      else:
+        month_count[month] = 1
+
+findCountMonth()
+
+print("Requests made per month:")
+for k, v in month_count.items():
+    print(k, v)
+print("-"*20)
 #Code for counting both most & least requested Files: 
-import re
-
-file_count = {}
-
 def getFileCount():
   global file_count
   for line in open('http_access_log.txt'):
