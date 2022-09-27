@@ -6,6 +6,7 @@ import re
 # Dictionaries to use
 file_count = {}
 month_count = {}
+day_count = {}
 
 # Variables to use
 amt_request_six_months = 0
@@ -48,6 +49,7 @@ def getRequestsPercent(file, num):
   requests_percent = (amt_requests / amt_request_total) * 100
   return round(requests_percent, 2)
 
+# Finds the count per month
 def findCountMonth():
   global month_count
   for line in open('http_access_log.txt'):
@@ -59,7 +61,20 @@ def findCountMonth():
         month_count[month] += 1
       else:
         month_count[month] = 1
- 
+
+# Finds the count per day
+def findCountDay():
+  global day_count
+  for line in open('http_access_log.txt'):
+    pieces = re.split(
+      ".*\[([0-9]+/[a-zA-Z]+)/[0-9]{4}:.* \-[0-9]{4}\] \".*\" .*", line)
+    if len(pieces) > 1:
+      day = pieces[1]
+      if day in day_count:
+        day_count[day] += 1
+      else:
+        day_count[day] = 1
+
 #Code for counting both most & least requested Files: 
 def getFileCount():
   global file_count
@@ -109,6 +124,13 @@ print("Requests made per month:")
 for k, v in month_count.items():
     print(k, v)
     
+print("-"*20)
+
+findCountDay()
+print("Requests made per day:")
+for k, v in day_count.items():
+  print(k, v)
+
 print("-"*20)
 
 amt_request_six_months = getFileCount()
