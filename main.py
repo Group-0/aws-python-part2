@@ -3,17 +3,23 @@ import os
 from os.path import exists
 import re
 
-# Dictionaries to use
+""" 
+  Dictionaries to use
+""" 
 file_count = {}
 month_count = {}
 day_count = {}
 
-# Variables to use
+""" 
+  Variables to use
+""" 
 amt_request_six_months = 0
 amt_request_total = 0
 amt_of_least_requested = 0 
 
-# Functions to use
+""" 
+  Functions to use
+""" 
 #   Paula's Code: the function to calculate the requests made in 6 months
 def getSixMonths(file):
   global amt_request_six_months
@@ -89,7 +95,9 @@ def getFileCount():
         file_count[filename] += 1
       else:
         file_count[filename] = 1
-
+""" 
+  Essentially, main() function
+""" 
 # Claire's Code: Fetching the log file from the Apache server
 URL_PATH = 'https://s3.amazonaws.com/tcmg476/http_access_log'
 
