@@ -140,7 +140,14 @@ findCountDay()
 print("Requests made per day:")
 for k, v in day_count.items():
   print(k, v)
-print("Average requests per day is: ", sum(day_count.values()) / len(day_count))
+
+print("-"*20)
+
+amt_request_six_months = getFileCount()
+
+print("This is the most requested file: ", max(file_count, key=file_count.get))
+print("This is the least requested file: ", min(file_count, key=file_count.get))
+
 print("-"*20)
 
 # Irish's Code: Percentage of requests that were unsuccessful (4xx request codes)
