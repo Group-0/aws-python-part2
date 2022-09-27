@@ -112,7 +112,6 @@ with open(log_file, "r") as file:
     
 # Juan's Code: Percentage of requests that were redirected elsewhere (any 3xx request codes)
 # Open and read file
-with open(LOCAL_FILE, "r") as file:
+with open(log_file, "r") as file:
     # Call function with correct parameters and print results
     print("Percent of Redirected Requests: ", getRequestsPercent(file, "3"), "%")
-
